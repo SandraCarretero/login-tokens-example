@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const corsOptions = require('./config/cors.config');
 const authRoutes = require('./routes/auth.routes');
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 
@@ -12,6 +13,7 @@ require('dotenv').config();
 // Middlewares para cliente
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 
 // Uso de rutas
 app.use('/auth', authRoutes);
